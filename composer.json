@@ -1,14 +1,14 @@
 {
-    "name": "vjik/_____",
+    "name": "vjik/accounting",
     "type": "library",
-    "description": "_____",
+    "description": "Accounting system",
     "keywords": [
-        "_____"
+        "accounting"
     ],
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://github.com/vjik/_____/issues?state=open",
-        "source": "https://github.com/vjik/_____"
+        "issues": "https://github.com/vjik/accounting/issues?state=open",
+        "source": "https://github.com/vjik/accounting"
     },
     "minimum-stability": "stable",
     "require": {
@@ -21,12 +21,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Vjik\\_____\\": "src"
+            "Vjik\\Accounting\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Vjik\\_____\\Tests\\": "tests"
+            "Vjik\\Accounting\\Tests\\": "tests"
         }
     },
     "scripts": {
