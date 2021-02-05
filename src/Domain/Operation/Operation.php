@@ -8,7 +8,7 @@ use DateTimeImmutable;
 
 final class Operation
 {
-    private OperationId $id;
+    private OperationIdInterface $id;
     private DateTimeImmutable $dateTime;
 
     /**
@@ -17,7 +17,7 @@ final class Operation
     private array $transactions;
 
     public function __construct(
-        OperationId $id,
+        OperationIdInterface $id,
         CreateTransactionData ...$createTransactionData
     ) {
         $this->id = $id;

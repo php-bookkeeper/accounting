@@ -6,20 +6,20 @@ namespace Vjik\Accounting\Domain\Operation;
 
 use DateTimeImmutable;
 use Money\Money;
-use Vjik\Accounting\Domain\Account\AccountId;
+use Vjik\Accounting\Domain\Account\AccountIdInterface;
 
 final class Transaction
 {
-    private TransactionId $id;
+    private TransactionIdInterface $id;
     private Entry $debit;
     private Entry $credit;
     private Money $amount;
     private DateTimeImmutable $dateTime;
 
     public function __construct(
-        TransactionId $id,
-        AccountId $debitAccountId,
-        AccountId $creditAccountId,
+        TransactionIdInterface $id,
+        AccountIdInterface $debitAccountId,
+        AccountIdInterface $creditAccountId,
         Money $amount,
         DateTimeImmutable $dateTime
     ) {
@@ -41,7 +41,7 @@ final class Transaction
         $this->dateTime = $dateTime;
     }
 
-    public function getId(): TransactionId
+    public function getId(): TransactionIdInterface
     {
         return $this->id;
     }

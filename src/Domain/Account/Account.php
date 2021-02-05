@@ -6,12 +6,12 @@ namespace Vjik\Accounting\Domain\Account;
 
 final class Account
 {
-    private AccountId $id;
+    private AccountIdInterface $id;
     private AccountType $type;
     private ?string $name;
 
     public function __construct(
-        AccountId $id,
+        AccountIdInterface $id,
         AccountType $type,
         string $name = null
     ) {
@@ -20,7 +20,7 @@ final class Account
         $this->name = $name;
     }
 
-    public function getId(): AccountId
+    public function getId(): AccountIdInterface
     {
         return $this->id;
     }

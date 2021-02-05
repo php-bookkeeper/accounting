@@ -5,17 +5,17 @@ declare(strict_types=1);
 namespace Vjik\Accounting\Domain\Operation\OperationService;
 
 use Money\Money;
-use Vjik\Accounting\Domain\Account\AccountId;
+use Vjik\Accounting\Domain\Account\AccountIdInterface;
 
 final class TransactionDto
 {
-    public AccountId $debitAccountId;
-    public AccountId $creditAccountId;
+    public AccountIdInterface $debitAccountId;
+    public AccountIdInterface $creditAccountId;
     public Money $amount;
 
     public function __construct(
-        AccountId $debitAccountId,
-        AccountId $creditAccountId,
+        AccountIdInterface $debitAccountId,
+        AccountIdInterface $creditAccountId,
         Money $amount
     ) {
         $this->debitAccountId = $debitAccountId;

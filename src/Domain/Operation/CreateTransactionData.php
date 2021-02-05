@@ -5,19 +5,19 @@ declare(strict_types=1);
 namespace Vjik\Accounting\Domain\Operation;
 
 use Money\Money;
-use Vjik\Accounting\Domain\Account\AccountId;
+use Vjik\Accounting\Domain\Account\AccountIdInterface;
 
 final class CreateTransactionData
 {
-    public TransactionId $id;
-    public AccountId $debitAccountId;
-    public AccountId $creditAccountId;
+    public TransactionIdInterface $id;
+    public AccountIdInterface $debitAccountId;
+    public AccountIdInterface $creditAccountId;
     public Money $amount;
 
     public function __construct(
-        TransactionId $id,
-        AccountId $debitAccountId,
-        AccountId $creditAccountId,
+        TransactionIdInterface $id,
+        AccountIdInterface $debitAccountId,
+        AccountIdInterface $creditAccountId,
         Money $amount
     ) {
         $this->id = $id;

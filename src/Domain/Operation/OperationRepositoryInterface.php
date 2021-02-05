@@ -6,11 +6,11 @@ namespace Vjik\Accounting\Domain\Operation;
 
 interface OperationRepositoryInterface
 {
-    public function nextOperationIdentity(): OperationId;
+    public function nextOperationIdentity(): OperationIdInterface;
 
-    public function nextTransactionIdentity(): TransactionId;
+    public function nextTransactionIdentity(): TransactionIdInterface;
 
-    public function getById(OperationId $id): ?Operation;
+    public function getById(OperationIdInterface $id): ?Operation;
 
     public function save(Operation $operation): void;
 }

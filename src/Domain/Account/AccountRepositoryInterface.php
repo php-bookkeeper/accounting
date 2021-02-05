@@ -6,7 +6,7 @@ namespace Vjik\Accounting\Domain\Account;
 
 interface AccountRepositoryInterface
 {
-    public function getById(AccountId $id): ?Account;
+    public function getById(AccountIdInterface $id): ?Account;
 
     public function save(Account $account): void;
 

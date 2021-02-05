@@ -6,16 +6,16 @@ namespace Vjik\Accounting\Domain\Operation;
 
 use DateTimeImmutable;
 use Money\Money;
-use Vjik\Accounting\Domain\Account\AccountId;
+use Vjik\Accounting\Domain\Account\AccountIdInterface;
 
 final class Entry
 {
-    private AccountId $accountId;
+    private AccountIdInterface $accountId;
     private DateTimeImmutable $dateTime;
     private Money $amount;
 
     public function __construct(
-        AccountId $accountId,
+        AccountIdInterface $accountId,
         Money $amount,
         DateTimeImmutable $dateTime
     ) {
@@ -24,7 +24,7 @@ final class Entry
         $this->dateTime = $dateTime;
     }
 
-    public function getAccountId(): AccountId
+    public function getAccountId(): AccountIdInterface
     {
         return $this->accountId;
     }

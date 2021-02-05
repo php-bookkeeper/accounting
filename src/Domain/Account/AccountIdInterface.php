@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Vjik\Accounting\Domain\Account;
 
-interface AccountId
+interface AccountIdInterface
 {
     public function __toString(): string;
 }
