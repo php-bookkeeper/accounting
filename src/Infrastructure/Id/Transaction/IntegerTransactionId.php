@@ -2,16 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vjik\Accounting\Infrastructure\Id;
+namespace Vjik\Accounting\Infrastructure\Id\Transaction;
 
-use Vjik\Accounting\Domain\Account\AccountIdInterface;
-use Vjik\Accounting\Domain\Operation\OperationIdInterface;
 use Vjik\Accounting\Domain\Operation\TransactionIdInterface;
 
-final class IntIdentificator implements
-    AccountIdInterface,
-    OperationIdInterface,
-    TransactionIdInterface
+final class IntegerTransactionId implements TransactionIdInterface
 {
     private int $id;
 

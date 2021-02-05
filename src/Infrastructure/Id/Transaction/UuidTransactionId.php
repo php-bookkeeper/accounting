@@ -2,17 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Vjik\Accounting\Infrastructure\Id;
+namespace Vjik\Accounting\Infrastructure\Id\Transaction;
 
 use Ramsey\Uuid\Uuid;
-use Vjik\Accounting\Domain\Account\AccountIdInterface;
-use Vjik\Accounting\Domain\Operation\OperationIdInterface;
 use Vjik\Accounting\Domain\Operation\TransactionIdInterface;
 
-final class UuidIdentificator implements
-    AccountIdInterface,
-    OperationIdInterface,
-    TransactionIdInterface
+final class UuidTransactionId implements TransactionIdInterface
 {
     private Uuid $id;
 
