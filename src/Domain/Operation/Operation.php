@@ -18,7 +18,7 @@ final class Operation
 
     public function __construct(
         OperationIdInterface $id,
-        CreateTransactionData ...$createTransactionData
+        TransactionCreationData ...$createTransactionData
     ) {
         $this->id = $id;
         $this->dateTime = new DateTimeImmutable();
