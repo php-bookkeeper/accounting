@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vjik\Accounting\Domain\Operation\OperationService;
+namespace Bookkeeper\Accounting\Domain\Operation\OperationService;
 
-use Vjik\Accounting\Domain\Operation\Operation;
-use Vjik\Accounting\Domain\Operation\OperationRepositoryInterface;
-use Vjik\Accounting\Domain\Operation\CreateTransactionData;
+use Bookkeeper\Accounting\Domain\Operation\Operation;
+use Bookkeeper\Accounting\Domain\Operation\OperationRepositoryInterface;
+use Bookkeeper\Accounting\Domain\Operation\CreateTransactionData;
 
 final class OperationService
 {

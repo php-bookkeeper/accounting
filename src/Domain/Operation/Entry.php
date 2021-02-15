@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vjik\Accounting\Domain\Operation;
+namespace Bookkeeper\Accounting\Domain\Operation;
 
 use DateTimeImmutable;
 use Money\Money;
-use Vjik\Accounting\Domain\Account\AccountIdInterface;
+use Bookkeeper\Accounting\Domain\Account\AccountIdInterface;
 
 final class Entry
 {

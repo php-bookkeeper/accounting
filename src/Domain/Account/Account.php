@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vjik\Accounting\Domain\Account;
+namespace Bookkeeper\Accounting\Domain\Account;
 
 final class Account
 {

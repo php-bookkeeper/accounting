@@ -1,5 +1,5 @@
 {
-    "name": "vjik/accounting",
+    "name": "php-bookkeeper/accounting",
     "type": "library",
     "description": "Accounting system",
     "keywords": [
@@ -7,8 +7,8 @@
     ],
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://github.com/vjik/accounting/issues?state=open",
-        "source": "https://github.com/vjik/accounting"
+        "issues": "https://github.com/php-bookkeeper/accounting/issues?state=open",
+        "source": "https://github.com/php-bookkeeper/accounting"
     },
     "minimum-stability": "stable",
     "require": {
@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Vjik\\Accounting\\": "src"
+            "Bookkeeper\\Accounting\\": "src"
         }
     },
     "autoload-dev": {

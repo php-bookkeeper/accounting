@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Vjik\Accounting\Domain\Operation\OperationService;
+namespace Bookkeeper\Accounting\Domain\Operation\OperationService;
 
 use Money\Money;
-use Vjik\Accounting\Domain\Account\AccountIdInterface;
+use Bookkeeper\Accounting\Domain\Account\AccountIdInterface;
 
 final class TransactionDto
 {

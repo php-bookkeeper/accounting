@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vjik\Accounting\Domain\Operation;
+namespace Bookkeeper\Accounting\Domain\Operation;
 
 use DateTimeImmutable;
 
@@ -33,5 +33,23 @@ final class Operation
                 $this->dateTime,
             );
         }
+    }
+
+    public function getId(): OperationIdInterface
+    {
+        return $this->id;
+    }
+
+    public function getCreationTime(): DateTimeImmutable
+    {
+        return $this->dateTime;
+    }
+
+    /**
+     * @return Transaction[]
+     */
+    public function getTransactions(): array
+    {
+        return $this->transactions;
     }
 }
