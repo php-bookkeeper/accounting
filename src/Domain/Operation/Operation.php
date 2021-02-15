@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vjik\Accounting\Domain\Operation;
+namespace Bookkeeper\Accounting\Domain\Operation;
 
 use DateTimeImmutable;
 
