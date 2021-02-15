@@ -9,7 +9,7 @@ use DateTimeImmutable;
 final class Operation
 {
     private OperationIdInterface $id;
-    private DateTimeImmutable $dateTime;
+    private DateTimeImmutable $creationTime;
 
     /**
      * @var Transaction[]
@@ -18,21 +18,12 @@ final class Operation
 
     public function __construct(
         OperationIdInterface $id,
-        TransactionCreationData ...$createTransactionData
+        DateTimeImmutable $creationTime,
+        Transaction ...$transactions
     ) {
         $this->id = $id;
-        $this->dateTime = new DateTimeImmutable();
-
-        $this->transactions = [];
-        foreach ($createTransactionData as $data) {
-            $this->transactions[] = new Transaction(
-                $data->id,
-                $data->debitAccountId,
-                $data->creditAccountId,
-                $data->amount,
-                $this->dateTime,
-            );
-        }
+        $this->creationTime = $creationTime;
+        $this->transactions = $transactions;
     }
 
     public function getId(): OperationIdInterface
@@ -42,7 +33,7 @@ final class Operation
 
     public function getCreationTime(): DateTimeImmutable
     {
-        return $this->dateTime;
+        return $this->creationTime;
     }
 
     /**
