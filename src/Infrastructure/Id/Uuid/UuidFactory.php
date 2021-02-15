@@ -26,7 +26,7 @@ final class UuidFactory
             throw new InvalidArgumentException("Uuid version is not supported: $generateVersion");
         }
 
-        if ($mode & self::MODE_ALL === 0) {
+        if (($mode & self::MODE_ALL) === 0) {
             throw new InvalidArgumentException("Uuid parsing mode not supported");
         }
 
@@ -39,6 +39,7 @@ final class UuidFactory
     {
         if ($value === null) {
             $factoryMethod = "uuid$this->generatedVersion";
+            /** @var UuidInterface $uuid */
             $uuid = $this->uuidFactory->$factoryMethod();
         } else {
             $uuid = $this->parse($value);
@@ -49,7 +50,7 @@ final class UuidFactory
 
     private function parse(string $value): UuidInterface
     {
-        if ($this->mode & self::MODE_BYTES !== 0) {
+        if (($this->mode & self::MODE_BYTES) !== 0) {
             try {
                 return $this->uuidFactory->fromBytes($value);
             } catch (UnableToBuildUuidException $exception) {
@@ -57,7 +58,7 @@ final class UuidFactory
             }
         }
 
-        if ($this->mode & self::MODE_STRING !== 0) {
+        if (($this->mode & self::MODE_STRING) !== 0) {
             try {
                 return $this->uuidFactory->fromString($value);
             } catch (UnableToBuildUuidException $exception) {
@@ -65,7 +66,7 @@ final class UuidFactory
             }
         }
 
-        if ($this->mode & self::MODE_INTEGER !== 0) {
+        if (($this->mode & self::MODE_INTEGER) !== 0) {
             try {
                 return $this->uuidFactory->fromInteger($value);
             } catch (UnableToBuildUuidException $exception) {
