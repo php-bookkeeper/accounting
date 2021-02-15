@@ -6,5 +6,5 @@ namespace Bookkeeper\Accounting\Domain\Operation;
 
 interface TransactionIdInterface
 {
-    public function __toString(): string;
+    public function value(): string;
 }

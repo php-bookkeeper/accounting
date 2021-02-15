@@ -4,25 +4,34 @@ declare(strict_types=1);
 
 namespace Bookkeeper\Accounting\Domain\Operation\OperationService;
 
-use Bookkeeper\Accounting\Domain\Operation\Operation;
-use Bookkeeper\Accounting\Domain\Operation\OperationRepositoryInterface;
 use Bookkeeper\Accounting\Domain\Operation\CreateTransactionData;
+use Bookkeeper\Accounting\Domain\Operation\Operation;
+use Bookkeeper\Accounting\Infrastructure\Id\OperationIdFactoryInterface;
+use Bookkeeper\Accounting\Infrastructure\Id\TransactionIdFactoryInterface;
+use Bookkeeper\Accounting\Infrastructure\Repository\OperationRepositoryInterface;
 
 final class OperationService
 {
-    private OperationRepositoryInterface $operations;
+    private OperationIdFactoryInterface $operationIdFactory;
+    private TransactionIdFactoryInterface $transactionIdFactory;
+    private OperationRepositoryInterface $operationRepository;
 
-    public function __construct(OperationRepositoryInterface $operations)
-    {
-        $this->operations = $operations;
+    public function __construct(
+        OperationIdFactoryInterface $operationIdFactory,
+        TransactionIdFactoryInterface $transactionIdFactory,
+        OperationRepositoryInterface $operationRepository
+    ) {
+        $this->operationIdFactory = $operationIdFactory;
+        $this->transactionIdFactory = $transactionIdFactory;
+        $this->operationRepository = $operationRepository;
     }
 
-    public function create(CreateTransactionData ...$transactionDtos): Operation
+    public function create(CreateTransactionData ...$transactions): Operation
     {
         $createTransactionData = [];
-        foreach ($transactionDtos as $transactionDto) {
+        foreach ($transactions as $transactionDto) {
             $createTransactionData[] = new CreateTransactionData(
-                $this->operations->nextTransactionIdentity(),
+                $this->transactionIdFactory->create(),
                 $transactionDto->debitAccountId,
                 $transactionDto->creditAccountId,
                 $transactionDto->amount
@@ -30,11 +39,11 @@ final class OperationService
         }
 
         $operation = new Operation(
-            $this->operations->nextOperationIdentity(),
+            $this->operationIdFactory->create(),
             ...$createTransactionData
         );
 
-        $this->operations->save($operation);
+        $this->operationRepository->save($operation);
 
         return $operation;
     }

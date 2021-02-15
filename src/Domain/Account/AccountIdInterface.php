@@ -6,5 +6,5 @@ namespace Bookkeeper\Accounting\Domain\Account;
 
 interface AccountIdInterface
 {
-    public function __toString(): string;
+    public function value(): string;
 }
