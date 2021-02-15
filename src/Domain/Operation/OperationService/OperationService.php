@@ -6,7 +6,7 @@ namespace Bookkeeper\Accounting\Domain\Operation\OperationService;
 
 use Bookkeeper\Accounting\Domain\Operation\Operation;
 use Bookkeeper\Accounting\Domain\Operation\OperationRepositoryInterface;
-use Bookkeeper\Accounting\Domain\Operation\CreateTransactionData;
+use Bookkeeper\Accounting\Domain\Operation\TransactionCreationData;
 
 final class OperationService
 {
@@ -17,14 +17,14 @@ final class OperationService
         $this->operations = $operations;
     }
 
-    public function create(CreateTransactionData ...$transactionDtos): Operation
+    public function create(TransactionCreationData ...$transactions): Operation
     {
         $createTransactionData = [];
-        foreach ($transactionDtos as $transactionDto) {
-            $createTransactionData[] = new CreateTransactionData(
+        foreach ($transactions as $transactionDto) {
+            $createTransactionData[] = new TransactionCreationData(
                 $this->operations->nextTransactionIdentity(),
-                $transactionDto->debitAccountId,
                 $transactionDto->creditAccountId,
+                $transactionDto->debitAccountId,
                 $transactionDto->amount
             );
         }

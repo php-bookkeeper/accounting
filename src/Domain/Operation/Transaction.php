@@ -11,28 +11,28 @@ use Bookkeeper\Accounting\Domain\Account\AccountIdInterface;
 final class Transaction
 {
     private TransactionIdInterface $id;
-    private Entry $debit;
     private Entry $credit;
+    private Entry $debit;
     private Money $amount;
     private DateTimeImmutable $dateTime;
 
     public function __construct(
         TransactionIdInterface $id,
-        AccountIdInterface $debitAccountId,
         AccountIdInterface $creditAccountId,
+        AccountIdInterface $debitAccountId,
         Money $amount,
         DateTimeImmutable $dateTime
     ) {
         $this->id = $id;
 
-        $this->debit = new Entry(
-            $debitAccountId,
+        $this->credit = new Entry(
+            $creditAccountId,
             $amount,
             $dateTime
         );
 
-        $this->credit = new Entry(
-            $creditAccountId,
+        $this->debit = new Entry(
+            $debitAccountId,
             $amount,
             $dateTime
         );
@@ -46,14 +46,14 @@ final class Transaction
         return $this->id;
     }
 
-    public function getDebit(): Entry
-    {
-        return $this->debit;
-    }
-
     public function getCredit(): Entry
     {
         return $this->credit;
+    }
+
+    public function getDebit(): Entry
+    {
+        return $this->debit;
     }
 
     public function getAmount(): Money
@@ -61,7 +61,7 @@ final class Transaction
         return $this->amount;
     }
 
-    public function getDateTime(): DateTimeImmutable
+    public function getCreationTime(): DateTimeImmutable
     {
         return $this->dateTime;
     }
