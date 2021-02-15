@@ -34,4 +34,22 @@ final class Operation
             );
         }
     }
+
+    public function getId(): OperationIdInterface
+    {
+        return $this->id;
+    }
+
+    public function getCreationTime(): DateTimeImmutable
+    {
+        return $this->dateTime;
+    }
+
+    /**
+     * @return Transaction[]
+     */
+    public function getTransactions(): array
+    {
+        return $this->transactions;
+    }
 }
