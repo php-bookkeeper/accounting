@@ -9,6 +9,9 @@ use Ramsey\Uuid\Exception\UnableToBuildUuidException;
 use Ramsey\Uuid\UuidFactoryInterface;
 use Ramsey\Uuid\UuidInterface;
 
+/**
+ * @internal
+ */
 final class UuidFactory
 {
     public const MODE_STRING = 0x1;
