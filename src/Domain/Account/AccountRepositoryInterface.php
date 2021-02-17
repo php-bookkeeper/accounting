@@ -9,5 +9,4 @@ interface AccountRepositoryInterface
     public function getById(AccountIdInterface $id): ?Account;
 
     public function save(Account $account): void;
-
 }

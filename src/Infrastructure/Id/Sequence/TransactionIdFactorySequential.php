@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Bookkeeper\Accounting\Infrastructure\Id\Sequence;
 
-use Bookkeeper\Accounting\Domain\Operation\TransactionIdInterface;
-use Bookkeeper\Accounting\Infrastructure\Id\TransactionIdFactoryInterface;
 use Bookkeeper\Accounting\Infrastructure\Id\TransactionIdGeneric;
+use Bookkeeper\Accounting\Domain\Operation\Transaction\TransactionIdFactoryInterface;
+use Bookkeeper\Accounting\Domain\Operation\Transaction\TransactionIdInterface;
 use Bookkeeper\Accounting\Infrastructure\Repository\TransactionIdSequenceRepositoryInterface;
 
 class TransactionIdFactorySequential implements TransactionIdFactoryInterface
