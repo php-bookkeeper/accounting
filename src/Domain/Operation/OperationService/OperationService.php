@@ -4,43 +4,29 @@ declare(strict_types=1);
 
 namespace Bookkeeper\Accounting\Domain\Operation\OperationService;
 
-use Bookkeeper\Accounting\Domain\Operation\CreateTransactionData;
 use Bookkeeper\Accounting\Domain\Operation\Operation;
 use Bookkeeper\Accounting\Domain\Operation\OperationIdFactoryInterface;
 use Bookkeeper\Accounting\Domain\Operation\OperationRepositoryInterface;
-use Bookkeeper\Accounting\Domain\Operation\Transaction\TransactionIdFactoryInterface;
+use Bookkeeper\Accounting\Domain\Operation\TransactionCreationData;
 
 final class OperationService
 {
     private OperationIdFactoryInterface $operationIdFactory;
-    private TransactionIdFactoryInterface $transactionIdFactory;
     private OperationRepositoryInterface $operationRepository;
 
     public function __construct(
         OperationIdFactoryInterface $operationIdFactory,
-        TransactionIdFactoryInterface $transactionIdFactory,
         OperationRepositoryInterface $operationRepository
     ) {
         $this->operationIdFactory = $operationIdFactory;
-        $this->transactionIdFactory = $transactionIdFactory;
         $this->operationRepository = $operationRepository;
     }
 
-    public function create(CreateTransactionData ...$transactions): Operation
+    public function create(TransactionCreationData ...$transactions): Operation
     {
-        $createTransactionData = [];
-        foreach ($transactions as $transactionDto) {
-            $createTransactionData[] = new CreateTransactionData(
-                $this->transactionIdFactory->create(),
-                $transactionDto->debitAccountId,
-                $transactionDto->creditAccountId,
-                $transactionDto->amount
-            );
-        }
-
         $operation = new Operation(
             $this->operationIdFactory->create(),
-            ...$createTransactionData
+            ...$transactions
         );
 
         $this->operationRepository->save($operation);
