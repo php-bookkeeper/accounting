@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Bookkeeper\Accounting\Infrastructure\Id\Uuid;
 
 use Bookkeeper\Accounting\Domain\Operation\OperationIdInterface;
-use Bookkeeper\Accounting\Infrastructure\Id\OperationIdFactoryInterface;
+use Bookkeeper\Accounting\Domain\Operation\PublicInterface\OperationIdFactoryInterface;
 
 final class OperationIdFactoryUuid implements OperationIdFactoryInterface
 {

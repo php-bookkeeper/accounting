@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Bookkeeper\Accounting\Infrastructure\Id\Sequence;
 
 use Bookkeeper\Accounting\Domain\Operation\OperationIdInterface;
-use Bookkeeper\Accounting\Infrastructure\Id\OperationIdFactoryInterface;
+use Bookkeeper\Accounting\Domain\Operation\PublicInterface\OperationIdFactoryInterface;
 use Bookkeeper\Accounting\Infrastructure\Id\OperationIdGeneric;
 use Bookkeeper\Accounting\Infrastructure\Repository\OperationIdSequenceRepositoryInterface;
 
