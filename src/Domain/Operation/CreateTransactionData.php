@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Bookkeeper\Accounting\Domain\Operation;
 
 use Bookkeeper\Accounting\Domain\Account\AccountIdInterface;
+use Bookkeeper\Accounting\Domain\Operation\Transaction\TransactionIdInterface;
 use Money\Money;
 
 final class CreateTransactionData

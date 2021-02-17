@@ -6,7 +6,7 @@ namespace Bookkeeper\Accounting\Infrastructure\Id\Uuid;
 
 use InvalidArgumentException;
 use Ramsey\Uuid\Exception\UnableToBuildUuidException;
-use Ramsey\Uuid\UuidFactoryInterface;
+use Ramsey\Uuid\UuidFactoryInterface as RamseyFactoryInterface;
 use Ramsey\Uuid\UuidInterface;
 
 /**
@@ -19,11 +19,11 @@ final class UuidFactory
     public const MODE_INTEGER = 0x4;
     public const MODE_ALL = 0x7;
 
-    private UuidFactoryInterface $uuidFactory;
+    private RamseyFactoryInterface $uuidFactory;
     private int $generatedVersion;
     private int $mode;
 
-    public function __construct(UuidFactoryInterface $uuidFactory, int $generateVersion = 4, int $mode = self::MODE_ALL)
+    public function __construct(RamseyFactoryInterface $uuidFactory, int $generateVersion = 4, int $mode = self::MODE_ALL)
     {
         if ($generateVersion < 1 || $generateVersion > 6) {
             throw new InvalidArgumentException("Uuid version is not supported: $generateVersion");

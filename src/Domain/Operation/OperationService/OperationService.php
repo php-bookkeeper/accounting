@@ -6,9 +6,9 @@ namespace Bookkeeper\Accounting\Domain\Operation\OperationService;
 
 use Bookkeeper\Accounting\Domain\Operation\CreateTransactionData;
 use Bookkeeper\Accounting\Domain\Operation\Operation;
-use Bookkeeper\Accounting\Domain\Operation\PublicInterface\OperationIdFactoryInterface;
-use Bookkeeper\Accounting\Domain\Operation\PublicInterface\OperationRepositoryInterface;
-use Bookkeeper\Accounting\Domain\Operation\PublicInterface\TransactionIdFactoryInterface;
+use Bookkeeper\Accounting\Domain\Operation\OperationIdFactoryInterface;
+use Bookkeeper\Accounting\Domain\Operation\OperationRepositoryInterface;
+use Bookkeeper\Accounting\Domain\Operation\Transaction\TransactionIdFactoryInterface;
 
 final class OperationService
 {
