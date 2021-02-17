@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Bookkeeper\Accounting\Domain\Operation;
+namespace Bookkeeper\Accounting\Domain\Operation\Transaction;
 
+use Bookkeeper\Accounting\Domain\Account\AccountIdInterface;
 use DateTimeImmutable;
 use Money\Money;
-use Bookkeeper\Accounting\Domain\Account\AccountIdInterface;
 
 final class Transaction
 {
