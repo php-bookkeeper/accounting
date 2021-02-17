@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bookkeeper\Accounting\Infrastructure\Repository;
+namespace Bookkeeper\Accounting\Domain\Operation\PublicInterface;
 
 use Bookkeeper\Accounting\Domain\Operation\Operation;
 use Bookkeeper\Accounting\Domain\Operation\OperationIdInterface;
