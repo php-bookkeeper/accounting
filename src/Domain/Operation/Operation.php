@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Bookkeeper\Accounting\Domain\Operation;
 
+use Bookkeeper\Accounting\Domain\Operation\OperationService\OperationService;
 use DateTimeImmutable;
 
 final class Operation
@@ -16,6 +17,13 @@ final class Operation
      */
     private array $transactions;
 
+    /**
+     * @param OperationIdInterface $id
+     * @param DateTimeImmutable $creationTime
+     * @param Transaction ...$transactions
+     *
+     * @internal Don't create it directly, use {@see OperationService::create()} instead
+     */
     public function __construct(
         OperationIdInterface $id,
         DateTimeImmutable $creationTime,

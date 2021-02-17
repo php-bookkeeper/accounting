@@ -2,10 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bookkeeper\Accounting\Infrastructure\Repository;
-
-use Bookkeeper\Accounting\Domain\Account\Account;
-use Bookkeeper\Accounting\Domain\Account\AccountIdInterface;
+namespace Bookkeeper\Accounting\Domain\Account;
 
 interface AccountRepositoryInterface
 {

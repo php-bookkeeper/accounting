@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace Bookkeeper\Accounting\Domain\Operation;
 
+use Bookkeeper\Accounting\Domain\Operation\OperationService\OperationService;
 use Bookkeeper\Accounting\Infrastructure\Id\OperationIdFactoryInterface;
 use Bookkeeper\Accounting\Infrastructure\Id\TransactionIdFactoryInterface;
 use DateTimeImmutable;
 
+/**
+ * @internal Don't use it directly, use {@see OperationService::create()} instead
+ */
 final class OperationFactory
 {
     private OperationIdFactoryInterface $operationIdFactory;
