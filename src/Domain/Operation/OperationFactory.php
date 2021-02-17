@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Bookkeeper\Accounting\Domain\Operation;
 
 use Bookkeeper\Accounting\Domain\Operation\OperationService\OperationService;
-use Bookkeeper\Accounting\Infrastructure\Id\OperationIdFactoryInterface;
-use Bookkeeper\Accounting\Infrastructure\Id\TransactionIdFactoryInterface;
+use Bookkeeper\Accounting\Domain\Operation\Transaction\Transaction;
+use Bookkeeper\Accounting\Domain\Operation\Transaction\TransactionIdFactoryInterface;
 use DateTimeImmutable;
 
 /**
