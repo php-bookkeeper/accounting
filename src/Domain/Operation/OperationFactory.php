@@ -32,8 +32,8 @@ final class OperationFactory
         foreach ($transactionData as $data) {
             $transactions[] = new Transaction(
                 $this->transactionIdFactory->create(),
-                $data->getCreditAccount(),
-                $data->getDebitAccount(),
+                $data->getCreditAccountId(),
+                $data->getDebitAccountId(),
                 $data->getAmount(),
                 $time
             );
