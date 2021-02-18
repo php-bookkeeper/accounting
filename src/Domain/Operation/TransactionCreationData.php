@@ -24,12 +24,12 @@ final class TransactionCreationData
         $this->amount = $amount;
     }
 
-    public function getCreditAccount(): AccountIdInterface
+    public function getCreditAccountId(): AccountIdInterface
     {
         return $this->creditAccountId;
     }
 
-    public function getDebitAccount(): AccountIdInterface
+    public function getDebitAccountId(): AccountIdInterface
     {
         return $this->debitAccountId;
     }
