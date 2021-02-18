@@ -10,20 +10,32 @@ use Money\Money;
 
 final class TransactionCreationData
 {
-    public TransactionIdInterface $id;
-    public AccountIdInterface $creditAccountId;
-    public AccountIdInterface $debitAccountId;
-    public Money $amount;
+    private AccountIdInterface $creditAccountId;
+    private AccountIdInterface $debitAccountId;
+    private Money $amount;
 
     public function __construct(
-        TransactionIdInterface $id,
         AccountIdInterface $creditAccountId,
         AccountIdInterface $debitAccountId,
         Money $amount
     ) {
-        $this->id = $id;
         $this->creditAccountId = $creditAccountId;
         $this->debitAccountId = $debitAccountId;
         $this->amount = $amount;
+    }
+
+    public function getCreditAccountId(): AccountIdInterface
+    {
+        return $this->creditAccountId;
+    }
+
+    public function getDebitAccountId(): AccountIdInterface
+    {
+        return $this->debitAccountId;
+    }
+
+    public function getAmount(): Money
+    {
+        return $this->amount;
     }
 }

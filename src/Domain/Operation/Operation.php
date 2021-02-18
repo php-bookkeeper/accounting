@@ -4,36 +4,35 @@ declare(strict_types=1);
 
 namespace Bookkeeper\Accounting\Domain\Operation;
 
+use Bookkeeper\Accounting\Domain\Operation\OperationService\OperationService;
 use Bookkeeper\Accounting\Domain\Operation\Transaction\Transaction;
 use DateTimeImmutable;
 
 final class Operation
 {
     private OperationIdInterface $id;
-    private DateTimeImmutable $dateTime;
+    private DateTimeImmutable $creationTime;
 
     /**
      * @var Transaction[]
      */
     private array $transactions;
 
+    /**
+     * @param OperationIdInterface $id
+     * @param DateTimeImmutable $creationTime
+     * @param Transaction ...$transactions
+     *
+     * @internal Don't create it directly, use {@see OperationService::create()} instead
+     */
     public function __construct(
         OperationIdInterface $id,
-        TransactionCreationData ...$createTransactionData
+        DateTimeImmutable $creationTime,
+        Transaction ...$transactions
     ) {
         $this->id = $id;
-        $this->dateTime = new DateTimeImmutable();
-
-        $this->transactions = [];
-        foreach ($createTransactionData as $data) {
-            $this->transactions[] = new Transaction(
-                $data->id,
-                $data->debitAccountId,
-                $data->creditAccountId,
-                $data->amount,
-                $this->dateTime,
-            );
-        }
+        $this->creationTime = $creationTime;
+        $this->transactions = $transactions;
     }
 
     public function getId(): OperationIdInterface
@@ -43,7 +42,7 @@ final class Operation
 
     public function getCreationTime(): DateTimeImmutable
     {
-        return $this->dateTime;
+        return $this->creationTime;
     }
 
     /**
